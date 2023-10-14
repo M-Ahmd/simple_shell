@@ -42,7 +42,7 @@ int _init_setv(info_t *inf)
 {
 	if (inf->argc != 3)
 	{
-		am_eputs("Incorrect number arguem\n");
+		am_eputs("Incorrect number of arguements\n");
 		return (1);
 	}
 	if (_rell_setenv(inf, inf->argv[1], inf->argv[2]))

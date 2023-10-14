@@ -15,7 +15,7 @@ int _shell_exit(info_t *inf)
 		if (excheck == -1)
 		{
 			inf->status = 2;
-			am_print_error(inf, "error number: ");
+			am_print_error(inf, "Illegal number: ");
 			am_eputs(inf->argv[1]);
 			am_eputchar('\n');
 			return (1);
@@ -39,7 +39,7 @@ int _this_is_cd(info_t *inf)
 
 	s = getcwd(buffer, 1024);
 	if (!s)
-		_puts("TODO: >>cwd fail EMSG here<<\n");
+		_puts("TODO: >>getcwd failure emsg here<<\n");
 	if (!inf->argv[1])
 	{
 		dr = get_val_env(inf, "HOME=");
@@ -67,7 +67,7 @@ int _this_is_cd(info_t *inf)
 		chret = chdir(inf->argv[1]);
 	if (chret == -1)
 	{
-		am_print_error(inf, "can't change dir to ");
+		am_print_error(inf, "can't cd to ");
 		am_eputs(inf->argv[1]), am_eputchar('\n');
 	}
 	else
@@ -86,9 +86,9 @@ int _this_is_cd(info_t *inf)
 int _shell_help(info_t *inf)
 {
 	char **rarray;
-
-	_puts("help call works. function not implemented yet\n");
+	
 	rarray = inf->argv;
+	_puts("help call works. Function not yet implemented \n");
 	if (0)
 	{
 		_puts(*rarray);

@@ -18,11 +18,11 @@ ssize_t input_buf(info_t *inf, char **buff, size_t *leng)
 		free(*buff);
 		*buff = NULL;
 		signal(SIGINT, Handler);
-		if(USE_GETLINE)
+#if USE_GETLINE
 			e = getline(buff, &len_p, stdin);
-		else
+#else
 			e = _getline(inf, buff, &len_p);
-
+#endif
 		if (e > 0)
 		{
 			if ((*buff)[e - 1] == '\n')
@@ -33,7 +33,7 @@ ssize_t input_buf(info_t *inf, char **buff, size_t *leng)
 			inf->linecount_flag = 1;
 			am_remove_comments(*buff);
 			am_build_history_list(inf, *buff, inf->histcount++);
-			if (sstrchr(*buff, ';'))
+			/*if (sstrchr(*buff, ';'))*/
 			{
 				*leng = e;
 				inf->cmd_buf = buff;
@@ -146,7 +146,7 @@ int _get_nextline(info_t *inf, char **ptr, size_t *length)
 	}
 	else
 	{
-		sstrncat(new_p, buf + i, k - i + 1);
+		sstrncpy(new_p, buf + i, k - i + 1);
 	}
 
 	s += k - i;
