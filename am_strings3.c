@@ -20,7 +20,6 @@ char *sstrncpy(char *dst, char *src, int n)
 		i++;
 	}
 
-
 	if (i < n)
 	{
 		j = i;

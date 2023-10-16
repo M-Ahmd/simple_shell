@@ -14,7 +14,6 @@ char *_strcpy(char *dst, char *src)
 	if (dst == src || src == 0)
 		return (dst);
 
-
 	while (src[i])
 	{
 		dst[i] = src[i];

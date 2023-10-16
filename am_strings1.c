@@ -86,12 +86,6 @@ int _strcmp(char *str1, char *str2)
 	{
 		return (0);
 	}
-	else if (*str1 < *str2)
-	{
-		return (-1);
-	}
 	else
-	{
-		return (1);
-	}
+		return (*str1 < *str2 ? -1 : 1);
 }
