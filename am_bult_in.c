@@ -44,13 +44,9 @@ int _this_is_cd(info_t *inf)
 	{
 		dr = get_val_env(inf, "HOME=");
 		if (!dr)
-		{
 			chret = chdir((dr = get_val_env(inf, "PWD=")) ? dr : "/");
-		}
 		else
-		{
 			chret = chdir(dr);
-		}
 	}
 	else if (_strcmp(inf->argv[1], "-") == 0)
 	{
@@ -86,7 +82,7 @@ int _this_is_cd(info_t *inf)
 int _shell_help(info_t *inf)
 {
 	char **rarray;
-	
+
 	rarray = inf->argv;
 	_puts("help call works. Function not yet implemented \n");
 	if (0)

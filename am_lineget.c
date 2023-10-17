@@ -1,14 +1,14 @@
 #include "header.h"
 
 /**
- * inp_buffer - buffers chained commands
+ * input_buff - buffers chained commands
  * @inf: parameter struct
  * @buff: address of buffer
  * @leng: address of length variable
  *
  * Return: bytes
  */
-ssize_t input_buf(info_t *inf, char **buff, size_t *leng)
+ssize_t input_buff(info_t *inf, char **buff, size_t *leng)
 {
 	ssize_t e = 0;
 	size_t len_p = 0;
@@ -21,7 +21,7 @@ ssize_t input_buf(info_t *inf, char **buff, size_t *leng)
 #if USE_GETLINE
 			e = getline(buff, &len_p, stdin);
 #else
-			e = _getline(inf, buff, &len_p);
+			e = _get_nextline(inf, buff, &len_p);
 #endif
 		if (e > 0)
 		{
@@ -57,7 +57,7 @@ ssize_t am_get_inp(info_t *inf)
 	char **buf_p = &(inf->arg), *p;
 
 	_putchar(BUF_FLUSH);
-	r = input_buf(inf, &buf, &len);
+	r = input_buff(inf, &buf, &len);
 	if (r == -1)
 		return (-1);
 	if (len)
@@ -154,9 +154,7 @@ int _get_nextline(info_t *inf, char **ptr, size_t *length)
 	p = new_p;
 
 	if (length)
-	{
 		*length = s;
-	}
 	*ptr = p;
 	return (s);
 }

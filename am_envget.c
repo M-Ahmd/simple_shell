@@ -19,7 +19,7 @@ char **get_env_str(info_t *inf)
 /**
  * _another_setv - Remove env variable
  * @inf: Structure containing potential arguments.
- * @var: the string env 
+ * @var: the string env
  * Return: 1 on delete, 0 otherwise
  */
 int _another_setv(info_t *inf, char *var)
@@ -49,9 +49,9 @@ int _another_setv(info_t *inf, char *var)
 
 /**
  * _rell_setenv - Initialize a new variable,
- * @info: Structure containing potential arguments.
+ * @inf: Structure containing potential arguments.
  * @var: the string var
- * @value: the string value
+ * @val: the string value
  *  Return: Always 0
  */
 int _rell_setenv(info_t *inf, char *var, char *val)

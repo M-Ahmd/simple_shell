@@ -46,10 +46,9 @@ void *_realloc(void *ptr, unsigned int old, unsigned int neww)
 	if (!ptr)
 		return (malloc(neww));
 	if (!neww)
-                return (free(ptr), NULL);
+		return (free(ptr), NULL);
 	if (neww == old)
 		return (ptr);
-
 	j = malloc(neww);
 	if (!j)
 		return (NULL);

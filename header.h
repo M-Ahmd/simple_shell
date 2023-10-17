@@ -45,24 +45,23 @@ typedef struct liststr
 
 /**
  *struct passinfo - contains pseudo-arguements to pass into a function,
- *		allowing uniform prototype for function pointer struct
  *@arg: a string generated from getline containing arguements
  *@argv: an array of strings generated from arg
  *@path: a string path for the current command
  *@argc: the argument count
- *@line_count: the error count
- *@err_num: the error code for exit()s
+ *@line_count: ..................
+ *@err_num: the er................it()s
  *@linecount_flag: if on count this line of input
- *@fname: the program filename
+ *@fname: the 0..................
  *@env: linked list local copy of environ
- *@environ: custom modified copy of environ from LL env
+ *@environ: cus................of environ from LL env
  *@history: the history node
- *@alias: the alias node
- *@env_changed: on if environ was changed
- *@status: the return status of the last exec'd command
- *@cmd_buf: address of pointer to cmd_buf, on if chaining
+ *@alias: the ......................................
+ *@env_changed: on if0.............. changed
+ *@status: the returnd command
+ *@cmd_buf: adf pointer to cmd_buf, on if chaining
  *@cmd_buf_type: CMD_type ||, &&, ;
- *@readfd: the fd from which to read line input
+ *@rfd: the fd from wh........ad line i
  *@histcount: the history line number count
  */
 typedef struct passinfo
@@ -82,8 +81,8 @@ typedef struct passinfo
 	int env_changed;
 	int status;
 
-	char **cmd_buf; /* pointer to cmd ; chain buffer, for memory mangement */
-	int cmd_buf_type; /* CMD_type ||, &&, ; */
+	char **cmd_buf;
+	int cmd_buf_type;
 	int rfd;
 	int histcount;
 } info_t;
@@ -93,7 +92,7 @@ typedef struct passinfo
 	0, 0, 0}
 
 /**
- *struct builtin - contains a builtin string and related function
+ *struct builtin - contains a builtin string, related function
  *@type: the builtin command flag
  *@func: the function
  */
@@ -178,7 +177,7 @@ int am_renumber_history(info_t *info_t);
 int am_is_cmd(info_t *, char *);
 char *am_dup_chars(char *, int, int);
 char *am_find_path(info_t *, char *, char *);
-/* toem_shloop.c */
+/*to am_shloop.c */
 int am_hsh(info_t *, char **);
 int am_find_builtin(info_t *);
 void am_find_cmd(info_t *);
@@ -224,11 +223,10 @@ void put_inf(info_t *inf, char **av);
 void freeStr_inf(info_t *inf, int all);
 
 /*am_lineget.c*/
-ssize_t input_buf(info_t *inf, char **buff, size_t *leng);
+ssize_t input_buff(info_t *inf, char **buff, size_t *leng);
 ssize_t am_get_inp(info_t *);
 ssize_t rd_buffer(info_t *inf, char *buff, size_t *i);
 int _get_nextline(info_t *inf, char **ptr, size_t *);
-int _getline(info_t *, char **, size_t *);
 void Handler(__attribute__((unused))int sig_num);
 
 #endif

@@ -14,7 +14,7 @@ void rm_inf(info_t *inf)
 
 /**
  * put_inf - initializes
- * @info: struct address
+ * @inf: struct address
  * @av: value vector
  */
 void put_inf(info_t *inf, char **av)
