@@ -63,7 +63,7 @@ int _this_is_cd(info_t *inf)
 		chret = chdir(inf->argv[1]);
 	if (chret == -1)
 	{
-		am_print_error(inf, "can't cd to ");
+		am_print_error(inf, "can't cd to: ");
 		am_eputs(inf->argv[1]), am_eputchar('\n');
 	}
 	else
